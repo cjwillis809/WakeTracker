@@ -15,6 +15,7 @@
 		4B9056AF1D1050F90042457C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B9056AD1D1050F90042457C /* LaunchScreen.storyboard */; };
 		4B9056BA1D1050F90042457C /* WakeTrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9056B91D1050F90042457C /* WakeTrackerTests.swift */; };
 		4B9056C51D1050F90042457C /* WakeTrackerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9056C41D1050F90042457C /* WakeTrackerUITests.swift */; };
+		4BFFC5931D10A58B00714785 /* Record.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BFFC5921D10A58B00714785 /* Record.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		4B9056C01D1050F90042457C /* WakeTrackerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WakeTrackerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B9056C41D1050F90042457C /* WakeTrackerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WakeTrackerUITests.swift; sourceTree = "<group>"; };
 		4B9056C61D1050F90042457C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4BFFC5921D10A58B00714785 /* Record.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Record.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 				4B9056AB1D1050F90042457C /* Assets.xcassets */,
 				4B9056AD1D1050F90042457C /* LaunchScreen.storyboard */,
 				4B9056B01D1050F90042457C /* Info.plist */,
+				4BFFC5921D10A58B00714785 /* Record.swift */,
 			);
 			path = WakeTracker;
 			sourceTree = "<group>";
@@ -264,6 +267,7 @@
 			files = (
 				4B9056A71D1050F90042457C /* ListViewController.swift in Sources */,
 				4B9056A31D1050F90042457C /* AppDelegate.swift in Sources */,
+				4BFFC5931D10A58B00714785 /* Record.swift in Sources */,
 				4B9056A51D1050F90042457C /* RecordViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -489,6 +493,7 @@
 				4B9056CB1D1050F90042457C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4B9056CC1D1050F90042457C /* Build configuration list for PBXNativeTarget "WakeTrackerTests" */ = {
 			isa = XCConfigurationList;
@@ -497,6 +502,7 @@
 				4B9056CE1D1050F90042457C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4B9056CF1D1050F90042457C /* Build configuration list for PBXNativeTarget "WakeTrackerUITests" */ = {
 			isa = XCConfigurationList;
@@ -505,6 +511,7 @@
 				4B9056D11D1050F90042457C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

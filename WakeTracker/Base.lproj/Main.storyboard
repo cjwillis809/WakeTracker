@@ -20,6 +20,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MXm-ae-4S8">
                                 <rect key="frame" x="257" y="285" width="87" height="30"/>
                                 <state key="normal" title="Record Time"/>
+                                <connections>
+                                    <action selector="recordCurrentTime:" destination="9pv-A4-QxB" eventType="touchUpInside" id="zU1-jS-ncQ"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Are you up? Record your time!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iMp-LU-AtK">
                                 <rect key="frame" x="185" y="192" width="231" height="21"/>
@@ -27,24 +30,37 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nSW-z2-cGU">
+                                <rect key="frame" x="268" y="415" width="65" height="25"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="iMp-LU-AtK" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="9Pw-XI-QPG"/>
+                            <constraint firstItem="nSW-z2-cGU" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="FBu-qR-sdI"/>
                             <constraint firstItem="MXm-ae-4S8" firstAttribute="top" secondItem="iMp-LU-AtK" secondAttribute="bottom" constant="72" id="Law-yB-ZxL"/>
                             <constraint firstItem="iMp-LU-AtK" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="Ntf-P2-lVP"/>
                             <constraint firstItem="MXm-ae-4S8" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="QNu-cx-nVX"/>
+                            <constraint firstItem="nSW-z2-cGU" firstAttribute="top" secondItem="MXm-ae-4S8" secondAttribute="bottom" constant="100" id="Ywz-F4-XmN"/>
                             <constraint firstItem="MXm-ae-4S8" firstAttribute="top" secondItem="iMp-LU-AtK" secondAttribute="bottom" constant="72" id="Z3K-CL-LpN"/>
                             <constraint firstItem="MXm-ae-4S8" firstAttribute="centerY" secondItem="tsR-hK-woN" secondAttribute="centerY" id="dbr-te-v0X"/>
+                            <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="nSW-z2-cGU" secondAttribute="bottom" constant="111" id="sVw-Pf-ua6"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="9Pw-XI-QPG"/>
                                 <exclude reference="Law-yB-ZxL"/>
+                                <exclude reference="sVw-Pf-ua6"/>
                             </mask>
                         </variation>
                     </view>
                     <tabBarItem key="tabBarItem" title="Record" image="first" id="acW-dT-cKf"/>
+                    <connections>
+                        <outlet property="timeLabel" destination="nSW-z2-cGU" id="K1X-fw-wcx"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
@@ -62,24 +78,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Second View" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="zEq-FU-wV5">
-                                <rect key="frame" x="195" y="279" width="209.5" height="41.5"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="TBD" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="zEq-FU-wV5">
+                                <rect key="frame" x="264" y="279" width="72" height="42"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="36"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Loaded by ListViewController" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NDk-cv-Gan">
-                                <rect key="frame" x="192" y="329" width="215.5" height="17"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="NDk-cv-Gan" firstAttribute="top" secondItem="zEq-FU-wV5" secondAttribute="bottom" constant="8" symbolic="YES" id="Day-4N-Vmt"/>
-                            <constraint firstItem="NDk-cv-Gan" firstAttribute="centerX" secondItem="zEq-FU-wV5" secondAttribute="centerX" id="JgO-Fn-dHn"/>
                             <constraint firstAttribute="centerX" secondItem="zEq-FU-wV5" secondAttribute="centerX" id="qqM-NS-xev"/>
                             <constraint firstAttribute="centerY" secondItem="zEq-FU-wV5" secondAttribute="centerY" id="qzY-Ky-pLD"/>
                         </constraints>
