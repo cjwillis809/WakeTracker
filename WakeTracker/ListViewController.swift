@@ -19,6 +19,13 @@ class ListViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    // MARK: NSCoding
+    
+    func loadRecords() -> [Record]? {
+        // Attempt to unarchive object stroed at the path. Will return nil if nothing is at that path
+        return NSKeyedUnarchiver.unarchiveObjectWithFile(Record.ArchiveURL.path!) as? [Record]
+    }
 
 
 }

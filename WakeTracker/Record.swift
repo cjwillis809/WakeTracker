@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Record {
+class Record: NSObject, NSCoding {
     
     // MARK: Variables
     var month: Int
@@ -18,6 +18,10 @@ class Record {
     var minute: Int
     var displayHour: Int
     
+    // MARK: Archiving Paths
+    static let DocumentsDirectory = NSFileManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask).first!
+    static let ArchiveURL = DocumentsDirectory.URLByAppendingPathComponent("records")
+    
     // MARK: Initialization
     init(month: Int, day: Int, year: Int, hour: Int, minute: Int) {
         self.month = month
@@ -26,6 +30,8 @@ class Record {
         self.hour = hour
         self.minute = minute
         self.displayHour = hour
+        
+        super.init()
     }
     
     // MARK: Methods
@@ -74,4 +80,35 @@ class Record {
     //            return ""
     //        }
     //    }
+    
+    // MARK: NSCoding
+    func encodeWithCoder(aCoder: NSCoder) {
+        aCoder.encodeInteger(month, forKey: RecordKey.monthKey)
+        aCoder.encodeInteger(day, forKey: RecordKey.dayKey)
+        aCoder.encodeInteger(year, forKey: RecordKey.yearKey)
+        aCoder.encodeInteger(hour, forKey: RecordKey.hourKey)
+        aCoder.encodeInteger(minute, forKey: RecordKey.minuteKey)
+        aCoder.encodeInteger(displayHour, forKey: RecordKey.displayHourKey)
+    }
+    
+    required convenience init?(coder aDecorder: NSCoder) {
+        let month = aDecorder.decodeIntegerForKey(RecordKey.monthKey)
+        let day = aDecorder.decodeIntegerForKey(RecordKey.dayKey)
+        let year = aDecorder.decodeIntegerForKey(RecordKey.yearKey)
+        let hour = aDecorder.decodeIntegerForKey(RecordKey.hourKey)
+        let minute = aDecorder.decodeIntegerForKey(RecordKey.minuteKey)
+//        let displayHour = aDecorder.decodeIntegerForKey(RecordKey.displayHourKey)
+        
+        self.init(month: month, day: day, year: year, hour: hour, minute: minute)
+    }
+    
+    // MARK: Keys
+    struct RecordKey {
+        static let monthKey = "month"
+        static let dayKey = "day"
+        static let yearKey = "year"
+        static let hourKey = "hour"
+        static let minuteKey = "minute"
+        static let displayHourKey = "displayHour"
+    }
 }
