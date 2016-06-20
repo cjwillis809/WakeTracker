@@ -65,7 +65,7 @@ class RecordViewController: UIViewController {
         let timeOfDay: String = record.setTimeOfDay()
         record.validateHour()
         
-        timeLabel.text = "\(record.displayHour):\(record.minute)\(timeOfDay)"
+        timeLabel.text = "\(record.displayHour):\(String(format: "%02d", record.minute))\(timeOfDay)"
     }
     
     // MARK: NSCoding
