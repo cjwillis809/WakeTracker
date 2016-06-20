@@ -29,13 +29,12 @@ class RecordViewController: UIViewController {
         super.viewWillAppear(animated)
         if let savedRecords = loadRecords() {
             recordArray = savedRecords
-            print("Found previous records! Length: \(recordArray.count)")
         }
     }
     
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
-        saveRecords(recordArray)
+        
     }
     
     // MARK: Actions
@@ -50,7 +49,14 @@ class RecordViewController: UIViewController {
         
         recordArray.append(newRecord)
         
-        displayTime(newRecord)
+        // Save and display the record on a seperate thread
+        let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT
+        dispatch_async(dispatch_get_global_queue(priority, 0)) {
+            self.saveRecords(self.recordArray)
+            dispatch_async(dispatch_get_main_queue()) {
+                self.displayTime(newRecord)
+            }
+        }
     }
     
     // MARK: Methods
@@ -70,8 +76,6 @@ class RecordViewController: UIViewController {
         
         if !isSuccessfulSave {
             print("Failed to save records...")
-        } else {
-            print("Saved successfully!")
         }
     }
     

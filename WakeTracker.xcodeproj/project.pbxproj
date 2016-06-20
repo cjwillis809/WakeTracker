@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4B1AF7881D1604AC00757C7F /* RecordTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B1AF7871D1604AC00757C7F /* RecordTableViewCell.swift */; };
 		4B9056A31D1050F90042457C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9056A21D1050F90042457C /* AppDelegate.swift */; };
 		4B9056A51D1050F90042457C /* RecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9056A41D1050F90042457C /* RecordViewController.swift */; };
 		4B9056A71D1050F90042457C /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9056A61D1050F90042457C /* ListViewController.swift */; };
@@ -36,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4B1AF7871D1604AC00757C7F /* RecordTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordTableViewCell.swift; sourceTree = "<group>"; };
 		4B90569F1D1050F90042457C /* WakeTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WakeTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B9056A21D1050F90042457C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4B9056A41D1050F90042457C /* RecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordViewController.swift; sourceTree = "<group>"; };
@@ -109,6 +111,7 @@
 				4B9056AD1D1050F90042457C /* LaunchScreen.storyboard */,
 				4B9056B01D1050F90042457C /* Info.plist */,
 				4BFFC5921D10A58B00714785 /* Record.swift */,
+				4B1AF7871D1604AC00757C7F /* RecordTableViewCell.swift */,
 			);
 			path = WakeTracker;
 			sourceTree = "<group>";
@@ -268,6 +271,7 @@
 				4B9056A71D1050F90042457C /* ListViewController.swift in Sources */,
 				4B9056A31D1050F90042457C /* AppDelegate.swift in Sources */,
 				4BFFC5931D10A58B00714785 /* Record.swift in Sources */,
+				4B1AF7881D1604AC00757C7F /* RecordTableViewCell.swift in Sources */,
 				4B9056A51D1050F90042457C /* RecordViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
