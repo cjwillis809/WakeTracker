@@ -50,6 +50,7 @@ class ListViewController: UITableViewController {
         
         // Fetches the appropriate record for the data source layout
         let record = recordArray[indexPath.row]
+        record.validateHour()
         
         cell.dateLabel.text = "\(record.month)/\(record.day)/\(record.year)"
         cell.timeLabel.text = "\(record.displayHour):\(String(format: "%02d", record.minute))\(record.setTimeOfDay())"

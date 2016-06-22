@@ -41,6 +41,7 @@ class RecordViewController: UIViewController {
         let components = calendar.components([.Day, .Month, .Year, .Hour, .Minute], fromDate: date)
         
         let newRecord = Record(month: components.month, day: components.day, year: components.year, hour: components.hour, minute: components.minute)
+        newRecord.validateHour()
         
         if validRecord(newRecord) {
             recordArray.append(newRecord)
@@ -72,7 +73,6 @@ class RecordViewController: UIViewController {
     
     func displayTime(record: Record) {
         let timeOfDay: String = record.setTimeOfDay()
-        record.validateHour()
         
         timeLabel.text = "\(record.displayHour):\(String(format: "%02d", record.minute))\(timeOfDay)"
     }
@@ -83,6 +83,13 @@ class RecordViewController: UIViewController {
         self.presentViewController(alert, animated: true, completion: nil)
     }
     
+    func isDateNew(establishedRecord: Record, newRecord: Record) -> Bool {
+        if establishedRecord.day == newRecord.day && establishedRecord.month == newRecord.month && establishedRecord.year == newRecord.year {
+            return false
+        }
+        return true
+    }
+    
     func validRecord(record: Record) -> Bool {
         if let savedRecords = loadRecords() {
             for r in savedRecords {
@@ -90,13 +97,6 @@ class RecordViewController: UIViewController {
                     return false
                 }
             }
-        }
-        return true
-    }
-    
-    func isDateNew(establishedRecord: Record, newRecord: Record) -> Bool {
-        if establishedRecord.day == newRecord.day && establishedRecord.month == newRecord.month && establishedRecord.year == newRecord.year {
-            return false
         }
         return true
     }
