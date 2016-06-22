@@ -59,6 +59,14 @@ class RecordViewController: UIViewController {
         }
     }
     
+    @IBAction func clearData(sender: UIButton) {
+        let emptyArray: [Record] = []
+        saveRecords(emptyArray)
+        let alert = UIAlertController(title: "Alert", message: "Your data has been cleared.", preferredStyle: UIAlertControllerStyle.Alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+        self.presentViewController(alert, animated: true, completion: nil)
+    }
+    
     // MARK: Methods
     
     func displayTime(record: Record) {

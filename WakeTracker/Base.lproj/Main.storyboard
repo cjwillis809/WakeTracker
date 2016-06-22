@@ -37,10 +37,18 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="00g-iS-Cbf">
+                                <rect key="frame" x="264" y="513" width="72" height="30"/>
+                                <state key="normal" title="Clear Data"/>
+                                <connections>
+                                    <action selector="clearData:" destination="9pv-A4-QxB" eventType="touchUpInside" id="HBW-YW-ePd"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="iMp-LU-AtK" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="9Pw-XI-QPG"/>
+                            <constraint firstItem="00g-iS-Cbf" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="DSu-Ec-jDs"/>
                             <constraint firstItem="nSW-z2-cGU" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="FBu-qR-sdI"/>
                             <constraint firstItem="MXm-ae-4S8" firstAttribute="top" secondItem="iMp-LU-AtK" secondAttribute="bottom" constant="72" id="Law-yB-ZxL"/>
                             <constraint firstItem="iMp-LU-AtK" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="Ntf-P2-lVP"/>
@@ -48,6 +56,7 @@
                             <constraint firstItem="nSW-z2-cGU" firstAttribute="top" secondItem="MXm-ae-4S8" secondAttribute="bottom" constant="100" id="Ywz-F4-XmN"/>
                             <constraint firstItem="MXm-ae-4S8" firstAttribute="top" secondItem="iMp-LU-AtK" secondAttribute="bottom" constant="72" id="Z3K-CL-LpN"/>
                             <constraint firstItem="MXm-ae-4S8" firstAttribute="centerY" secondItem="tsR-hK-woN" secondAttribute="centerY" id="dbr-te-v0X"/>
+                            <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="00g-iS-Cbf" secondAttribute="bottom" constant="8" id="pq5-NN-QpA"/>
                             <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="nSW-z2-cGU" secondAttribute="bottom" constant="111" id="sVw-Pf-ua6"/>
                         </constraints>
                         <variation key="default">
