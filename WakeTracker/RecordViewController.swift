@@ -32,11 +32,6 @@ class RecordViewController: UIViewController {
         }
     }
     
-    override func viewWillDisappear(animated: Bool) {
-        super.viewWillDisappear(animated)
-        
-    }
-    
     // MARK: Actions
 
     @IBAction func recordCurrentTime(sender: UIButton) {
@@ -47,19 +42,25 @@ class RecordViewController: UIViewController {
         
         let newRecord = Record(month: components.month, day: components.day, year: components.year, hour: components.hour, minute: components.minute)
         
-        recordArray.append(newRecord)
-        
-        // Save and display the record on a seperate thread
-        let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT
-        dispatch_async(dispatch_get_global_queue(priority, 0)) {
-            self.saveRecords(self.recordArray)
-            dispatch_async(dispatch_get_main_queue()) {
-                self.displayTime(newRecord)
+        if validRecord(newRecord) {
+            recordArray.append(newRecord)
+            
+            // Save and display the record on a seperate thread
+            let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT
+            dispatch_async(dispatch_get_global_queue(priority, 0)) {
+                self.saveRecords(self.recordArray)
+                dispatch_async(dispatch_get_main_queue()) {
+                    self.displayTime(newRecord)
+                }
             }
+        } else {
+            displayTime(newRecord)
+            displayDuplicateDateAlert()
         }
     }
     
     @IBAction func clearData(sender: UIButton) {
+        recordArray.removeAll()
         let emptyArray: [Record] = []
         saveRecords(emptyArray)
         let alert = UIAlertController(title: "Alert", message: "Your data has been cleared.", preferredStyle: UIAlertControllerStyle.Alert)
@@ -76,6 +77,30 @@ class RecordViewController: UIViewController {
         timeLabel.text = "\(record.displayHour):\(String(format: "%02d", record.minute))\(timeOfDay)"
     }
     
+    func displayDuplicateDateAlert() {
+        let alert = UIAlertController(title: "Alert", message: "You have already recorded a time today!", preferredStyle: UIAlertControllerStyle.Alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+        self.presentViewController(alert, animated: true, completion: nil)
+    }
+    
+    func validRecord(record: Record) -> Bool {
+        if let savedRecords = loadRecords() {
+            for r in savedRecords {
+                if !isDateNew(r, newRecord: record) {
+                    return false
+                }
+            }
+        }
+        return true
+    }
+    
+    func isDateNew(establishedRecord: Record, newRecord: Record) -> Bool {
+        if establishedRecord.day == newRecord.day && establishedRecord.month == newRecord.month && establishedRecord.year == newRecord.year {
+            return false
+        }
+        return true
+    }
+    
     // MARK: NSCoding
     
     func saveRecords(records: [Record]) {
@@ -88,7 +113,7 @@ class RecordViewController: UIViewController {
     }
     
     func loadRecords() -> [Record]? {
-        // Attempt to unarchive object stroed at the path. Will return nil if nothing is at that path
+        // Attempt to unarchive object stored at the path. Will return nil if nothing is at that path
         return NSKeyedUnarchiver.unarchiveObjectWithFile(Record.ArchiveURL.path!) as? [Record]
     }
 

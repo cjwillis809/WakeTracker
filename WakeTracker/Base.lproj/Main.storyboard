@@ -68,6 +68,7 @@
                         </variation>
                     </view>
                     <tabBarItem key="tabBarItem" title="Record" image="first" id="acW-dT-cKf"/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <connections>
                         <outlet property="timeLabel" destination="nSW-z2-cGU" id="K1X-fw-wcx"/>
                     </connections>
@@ -126,6 +127,7 @@
                         </connections>
                     </tableView>
                     <tabBarItem key="tabBarItem" title="List" image="second" id="tvo-xe-jA6"/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SM5-jc-fGz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
